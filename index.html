@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hôm nay ăn gì? - Trợ thủ quyết định</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🍜 Hôm nay ăn gì?</h1>
+        <p class="subtitle">Trợ thủ quyết định nhanh chóng của bạn</p>
+
+        <div class="input-section">
+            <input 
+                type="text" 
+                id="optionInput" 
+                placeholder="Nhập lựa chọn (ví dụ: Phở, Cơm tấm, Pizza...)"
+                onkeypress="handleKeyPress(event)"
+            >
+            <button class="btn-add" onclick="addOption()">Thêm</button>
+            <button class="btn-add-all" onclick="addAllOptions()">Thêm tất cả</button>
+        </div>
+
+        <div class="options-section">
+            <div class="options-title">
+                <span>Danh sách lựa chọn</span>
+                <span class="options-count" id="optionsCount">0</span>
+            </div>
+            <div class="options-list" id="optionsList"></div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn-choose" id="chooseBtn" onclick="chooseRandom()" disabled>
+                ✨ Chọn giúp tôi
+            </button>
+            <button class="btn-save" onclick="saveFavoriteList()">💾 Lưu danh sách</button>
+            <button class="btn-reset" onclick="resetAll()">Xóa hết</button>
+        </div>
+
+        <div class="result-section" id="resultSection">
+            <div class="result-text">Kết quả được chọn:</div>
+            <div style="display:flex; align-items:center; gap:12px; justify-content:center; flex-direction:column;">
+                <div class="result-answer" id="resultAnswer"></div>
+                <button class="btn-copy" id="copyBtn" onclick="copyResult()">Sao chép kết quả</button>
+            </div>
+        </div>
+
+        <div class="storage-section">
+            <div class="storage-title">📌 Danh sách đã lưu</div>
+            <div class="saved-list" id="savedList"></div>
+        </div>
+    </div>
+    <div class="language-switcher">
+        <label for="languageSelect">🌐 Ngôn ngữ:</label>
+        <select id="languageSelect" onchange="switchLanguage()">
+            <option value="vi">Tiếng Việt</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
